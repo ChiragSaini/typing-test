@@ -20,9 +20,10 @@ const App = () => {
 
     const getRandomString = async () => {
         setLoading(true);
-        const result = await axios.get('https://goquotes-api.herokuapp.com/api/v1/random?count=1');
+        const result = await axios.get('https://api.quotable.io/random');
         try {
-            setAppState({ ...appState, text: result.data.quotes[0].text, userInput: '' })
+            console.log({ result })
+            setAppState({ ...appState, text: result.data.content, userInput: '' })
         } catch (error) {
             console.log(error);
         }
@@ -77,7 +78,7 @@ const App = () => {
             <Flex alignItems="center" justifyContent="center">
                 <Box maxW='968px' width="100%" mt={8} justifyContent="center">
                     <Heading textAlign="center">My Typing Speed Test</Heading>
-                    <Box style={{ height:'50px',margin: '10px',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Box style={{ height: '50px', margin: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         {loading && <CircularProgress isIndeterminate color="green.300" size="50px" thickness="10px" />}
                     </Box>
                     <Preview text={appState.text} userInput={appState.userInput} />
