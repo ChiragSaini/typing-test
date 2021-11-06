@@ -1,4 +1,4 @@
-# Link for Live Demo
+# Link for Live Demo of the App
 [Live Demo Link here](https://chirag-typing.netlify.app/)
 
 # Getting Started with Create React App
